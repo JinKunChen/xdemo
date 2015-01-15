@@ -10,6 +10,6 @@ node_modules
 .merge_file*
 .sass-cache
 .DS_Store
-src/main/webapp/dist
+mcc/src/main/webapp/dist
 .gradle
 build
