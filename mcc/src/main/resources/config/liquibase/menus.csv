@@ -1,0 +1,6 @@
+id;name;SN;expanded;leaf;iconCls;display;parentId;clazz;parentIds;hrefTarget;remark
+1;根菜单;0;true;false;NULL;true;0;NULL;0,;NULL;NULL
+2;系统管理;5;true;false;configIcon;true;1;NULL;0,1;NULL;NULL
+3;菜单管理;1;true;true;configIcon;true;2;NULL;0,1,2;NULL;NULL
+4;人员管理;2;true;true;configIcon;true;2;NULL;0,1,2;NULL;NULL
+

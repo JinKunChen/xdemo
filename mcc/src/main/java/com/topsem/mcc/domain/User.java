@@ -2,6 +2,7 @@ package com.topsem.mcc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Email;
@@ -21,6 +22,7 @@ import java.util.Set;
 @Table(name = "T_USER")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class User extends AbstractAuditingEntity implements Serializable {
 
     @Id

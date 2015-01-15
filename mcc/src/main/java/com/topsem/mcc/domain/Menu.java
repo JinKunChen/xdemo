@@ -10,12 +10,13 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Entity
-@Table(name = "sys_menu")
+@Table(name = "SYS_MENU")
 @ToString(of = "name")
 public class Menu extends Tree<Menu> {
 
@@ -32,6 +33,7 @@ public class Menu extends Tree<Menu> {
     @JsonView(View.Public.class)
     private String hrefTarget; // 请求地址
 
+    @Transient
     @JsonView(View.Checkable.class)
     private boolean checked = false; // 是否被选中
 

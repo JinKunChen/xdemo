@@ -163,6 +163,34 @@
                                  constraintName="FK_event_persistent_audit_event_data"
                                  referencedColumnNames="id"
                                  referencedTableName="T_PERSISTENT_AUDIT_EVENT"/>
+
+
+        <createTable tableName="SYS_MENU">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="SN" type="int"/>
+            <column name="expanded" type="boolean"/>
+            <column name="leaf" type="boolean"/>
+            <column name="display" type="boolean" valueBoolean="false">
+                <constraints nullable="false" />
+            </column>
+            <column name="parentId" type="bigint"/>
+            <column name="clazz" type="varchar(50)"/>
+            <column name="iconCls" type="varchar(50)"/>
+            <column name="parentIds" type="varchar(50)"/>
+            <column name="hrefTarget" type="varchar(100)" />
+            <column name="remark" type="varchar(255)"/>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/menus.csv"
+                  separator=";"
+                  tableName="SYS_MENU"/>
+
     </changeSet>
     
 </databaseChangeLog>

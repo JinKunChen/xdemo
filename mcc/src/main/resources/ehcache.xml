@@ -36,4 +36,8 @@
     <cache name="com.topsem.mcc.domain.User.persistentTokens"
            timeToLiveSeconds="3600">
     </cache>
+
+    <cache name="com.topsem.mcc.domain.Menu"
+           timeToLiveSeconds="3600">
+    </cache>
 </ehcache>
