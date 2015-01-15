@@ -51,18 +51,13 @@ public class PersistentToken implements Serializable {
 
     @JsonIgnore
     @ManyToOne
+    @JoinColumn(name = "userId")
     private User user;
-
 
     @JsonGetter
     public String getFormattedTokenDate() {
         return DATE_TIME_FORMATTER.print(this.tokenDate);
     }
-
-    public String getIpAddress() {
-        return ipAddress;
-    }
-
 
     @Override
     public boolean equals(Object o) {
