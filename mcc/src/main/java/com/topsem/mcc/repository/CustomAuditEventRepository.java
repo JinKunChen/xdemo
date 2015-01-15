@@ -37,7 +37,7 @@ public class CustomAuditEventRepository {
                     persistentAuditEvents = persistenceAuditEventRepository.findByPrincipal(principal);
                 } else {
                     persistentAuditEvents =
-                            persistenceAuditEventRepository.findByPrincipalAndAuditEventDateAfter(principal, new LocalDateTime(after));
+                            persistenceAuditEventRepository.findByPrincipalAndEventDateAfter(principal, new LocalDateTime(after));
                 }
                 return auditEventConverter.convertToAuditEvent(persistentAuditEvents);
             }
@@ -46,8 +46,8 @@ public class CustomAuditEventRepository {
             public void add(AuditEvent event) {
                 PersistentAuditEvent persistentAuditEvent = new PersistentAuditEvent();
                 persistentAuditEvent.setPrincipal(event.getPrincipal());
-                persistentAuditEvent.setAuditEventType(event.getType());
-                persistentAuditEvent.setAuditEventDate(new LocalDateTime(event.getTimestamp()));
+                persistentAuditEvent.setEventType(event.getType());
+                persistentAuditEvent.setEventDate(new LocalDateTime(event.getTimestamp()));
                 persistentAuditEvent.setData(auditEventConverter.convertDataToStrings(event.getData()));
 
                 persistenceAuditEventRepository.save(persistentAuditEvent);

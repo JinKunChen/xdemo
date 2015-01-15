@@ -38,11 +38,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private String password;
 
     @Size(max = 50)
-    @Column(name = "first_name", length = 50)
+    @Column(length = 50)
     private String firstName;
 
     @Size(max = 50)
-    @Column(name = "last_name", length = 50)
+    @Column(length = 50)
     private String lastName;
 
     @Email
@@ -54,19 +54,19 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private boolean activated = false;
 
     @Size(min = 2, max = 5)
-    @Column(name = "lang_key", length = 5)
+    @Column(length = 5)
     private String langKey;
 
     @Size(max = 20)
-    @Column(name = "activation_key", length = 20)
+    @Column(length = 20)
     private String activationKey;
 
     @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "T_USER_AUTHORITY",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
+            joinColumns = {@JoinColumn(name = "userId", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "authorityName", referencedColumnName = "name")})
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Authority> authorities = new HashSet<>();
 

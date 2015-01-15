@@ -2,6 +2,7 @@ package com.topsem.mcc.domain;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Type;
@@ -22,6 +23,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "T_PERSISTENT_TOKEN")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Data
 public class PersistentToken implements Serializable {
 
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("d MMMM yyyy");
@@ -33,49 +35,24 @@ public class PersistentToken implements Serializable {
 
     @JsonIgnore
     @NotNull
-    @Column(name = "token_value", nullable = false)
+    @Column(nullable = false)
     private String tokenValue;
 
     @JsonIgnore
-    @Column(name = "token_date")
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
     private LocalDate tokenDate;
 
     //an IPV6 address max length is 39 characters
     @Size(min = 0, max = 39)
-    @Column(name = "ip_address", length = 39)
+    @Column(length = 39)
     private String ipAddress;
 
-    @Column(name = "user_agent")
     private String userAgent;
 
     @JsonIgnore
     @ManyToOne
     private User user;
 
-    public String getSeries() {
-        return series;
-    }
-
-    public void setSeries(String series) {
-        this.series = series;
-    }
-
-    public String getTokenValue() {
-        return tokenValue;
-    }
-
-    public void setTokenValue(String tokenValue) {
-        this.tokenValue = tokenValue;
-    }
-
-    public LocalDate getTokenDate() {
-        return tokenDate;
-    }
-
-    public void setTokenDate(LocalDate tokenDate) {
-        this.tokenDate = tokenDate;
-    }
 
     @JsonGetter
     public String getFormattedTokenDate() {
@@ -86,29 +63,6 @@ public class PersistentToken implements Serializable {
         return ipAddress;
     }
 
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
-    }
-
-    public String getUserAgent() {
-        return userAgent;
-    }
-
-    public void setUserAgent(String userAgent) {
-        if (userAgent.length() >= MAX_USER_AGENT_LEN) {
-            this.userAgent = userAgent.substring(0, MAX_USER_AGENT_LEN - 1);
-        } else {
-            this.userAgent = userAgent;
-        }
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     @Override
     public boolean equals(Object o) {
