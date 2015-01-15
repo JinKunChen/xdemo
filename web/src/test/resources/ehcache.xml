@@ -12,27 +12,27 @@
             overflowToDisk="false"
             />
 
-    <cache name="com.topsem.domain.User"
+    <cache name="com.topsem.mcc.domain.User"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.topsem.domain.Authority"
+    <cache name="com.topsem.mcc.domain.Authority"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.topsem.domain.User.authorities"
+    <cache name="com.topsem.mcc.domain.User.authorities"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.topsem.domain.PersistentToken"
+    <cache name="com.topsem.mcc.domain.PersistentToken"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.topsem.domain.User.persistentTokens"
+    <cache name="com.topsem.mcc.domain.User.persistentTokens"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.topsem.domain.PersistentAuditEvent"
+    <cache name="com.topsem.mcc.domain.PersistentAuditEvent"
            timeToLiveSeconds="3600">
     </cache>
 </ehcache>

@@ -3,9 +3,11 @@ package com.topsem.config;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.servlet.InstrumentedFilter;
 import com.codahale.metrics.servlets.MetricsServlet;
-import com.topsem.web.filter.CachingHttpHeadersFilter;
-import com.topsem.web.filter.StaticResourcesProductionFilter;
-import com.topsem.web.filter.gzip.GZipServletFilter;
+import com.topsem.common.web.method.support.QueryObjectMethodArgumentResolver;
+import com.topsem.common.web.method.support.QueryableMethodArgumentResolver;
+import com.topsem.mcc.web.filter.CachingHttpHeadersFilter;
+import com.topsem.mcc.web.filter.StaticResourcesProductionFilter;
+import com.topsem.mcc.web.filter.gzip.GZipServletFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +18,19 @@ import org.springframework.boot.context.embedded.MimeMappings;
 import org.springframework.boot.context.embedded.ServletContextInitializer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.inject.Inject;
 import javax.servlet.*;
-import java.util.Arrays;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Configuration of web application with Servlet 3.0 APIs.
  */
 @Configuration
 @AutoConfigureAfter(CacheConfiguration.class)
-public class WebConfigurer implements ServletContextInitializer, EmbeddedServletContainerCustomizer {
+public class WebConfigurer extends WebMvcConfigurerAdapter implements ServletContextInitializer, EmbeddedServletContainerCustomizer {
 
     private final Logger log = LoggerFactory.getLogger(WebConfigurer.class);
 
@@ -144,6 +145,12 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         metricsAdminServlet.addMapping("/metrics/metrics/*");
         metricsAdminServlet.setAsyncSupported(true);
         metricsAdminServlet.setLoadOnStartup(2);
+    }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(new QueryableMethodArgumentResolver());
+        argumentResolvers.add(new QueryObjectMethodArgumentResolver());
     }
 
     /**

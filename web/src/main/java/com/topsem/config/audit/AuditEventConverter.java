@@ -1,6 +1,6 @@
 package com.topsem.config.audit;
 
-import com.topsem.domain.PersistentAuditEvent;
+import com.topsem.mcc.domain.PersistentAuditEvent;
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
