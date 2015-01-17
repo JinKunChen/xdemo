@@ -13,14 +13,20 @@ Ext.define('App.view.main.Main', {
     ],
 
     xtype: 'app-main',
-    
+
     controller: 'main',
+
     viewModel: {
         type: 'main'
     },
 
     layout: {
         type: 'border'
+    },
+
+    initComponent: function () {
+        Ext.setGlyphFontFamily('FontAwesome'); // 设置图标字体文件，以使用glyph属性
+        this.callParent();
     },
 
     items: [{
@@ -36,11 +42,12 @@ Ext.define('App.view.main.Main', {
             text: 'Button',
             handler: 'onClickButton'
         }]
-    },{
+    }, {
         region: 'center',
         xtype: 'tabpanel',
-        items:[{
+        items: [{
             title: 'Tab 1',
+            glyph: 0xf015,
             html: '<h2>Content appropriate for the current navigation.</h2>'
         }]
     }]
