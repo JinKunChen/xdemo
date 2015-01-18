@@ -5,14 +5,33 @@
  */
 Ext.define('App.Application', {
     extend: 'Ext.app.Application',
-    
+
     name: 'App',
+
+    uses:['App.SimData', 'Ext.ux.ajax.*'],
+
 
     stores: [
         // TODO: add global / shared stores here
     ],
-    
+
+    controllers: [
+        'Root'
+        // TODO: add controllers here
+    ],
+
     launch: function () {
         // TODO - Launch the application
+
+
+        //模拟测试数据
+        Ext.ux.ajax.SimManager.init().register({
+            '/authenticate': {
+                type: 'json',
+                data: function (ctx) {
+                    return Ext.apply({}, true);
+                }
+            }
+        });
     }
 });
