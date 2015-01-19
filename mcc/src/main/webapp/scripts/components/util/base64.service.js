@@ -1,7 +1,7 @@
 /*jshint bitwise: false*/
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .service('Base64', function () {
         var keyStr = 'ABCDEFGHIJKLMNOP' +
             'QRSTUVWXYZabcdef' +

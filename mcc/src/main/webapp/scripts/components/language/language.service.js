@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .factory('Language', function ($q, $http, $translate, LANGUAGES) {
         return {
             getCurrent: function () {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .controller('AuditsController', function ($scope, $translate, $filter, AuditsService) {
         $scope.onChangeDate = function () {
             var dateFormat = 'yyyy-MM-dd';

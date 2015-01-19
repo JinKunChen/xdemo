@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp', ['LocalStorageModule', 'tmh.dynamicLocale',
+angular.module('topsemApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'ngCacheBuster'])
 
     .run(function ($rootScope, $location, $http, $state, $translate, Auth, Principal, Language) {

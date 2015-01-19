@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .controller('MetricsController', function ($scope, MonitoringService) {
         $scope.metrics = {};
         $scope.updatingMetrics = true;

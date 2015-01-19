@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .controller('LogoutController', function (Auth) {
         Auth.logout();
     });

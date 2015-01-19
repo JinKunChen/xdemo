@@ -15,7 +15,10 @@ Ext.define('App.view.main.Main', {
         'App.view.main.MainModel'
     ],
 
-    uses: ['App.view.main.region.Top', 'App.view.main.region.Bottom'],
+    uses: ['App.view.main.region.Top',
+        'App.view.main.region.Bottom',
+        'App.view.main.region.Left',
+        'App.view.main.region.Center'],
 
     xtype: 'app-main',
 
@@ -44,26 +47,19 @@ Ext.define('App.view.main.Main', {
             region: 'south',
             bind: '你好，{currentUser}'
         }, {
-            xtype: 'panel',
-            bind: {
-                title: '{name}'
-            },
+            xtype: 'main-left',
             region: 'west',
-            html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
             width: 250,
             split: true,
-            tbar: [{
-                text: 'Button',
-                handler: 'onClickButton'
-            }]
+            collapsible: true,
+            listeners: {
+                itemclick: 'onMenuItemClick'
+            }
         }, {
             region: 'center',
-            xtype: 'tabpanel',
-            items: [{
-                title: '首页',
-                glyph: 0xf015,
-                html: '<h2>Content appropriate for the current navigation.</h2>'
-            }]
+            id: 'content-panel',
+            xtype: 'main-center'
+
         }]
 });
 

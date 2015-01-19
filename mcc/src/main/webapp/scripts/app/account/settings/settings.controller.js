@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .controller('SettingsController', function ($scope, Principal, Auth) {
         $scope.success = null;
         $scope.error = null;

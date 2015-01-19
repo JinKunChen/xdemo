@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .controller('NavbarController', function ($scope, $location, $state, Auth, Principal) {
         $scope.isAuthenticated = Principal.isAuthenticated;
         $scope.isInRole = Principal.isInRole;

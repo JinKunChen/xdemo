@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .factory('MonitoringService', function ($rootScope, $http) {
         return {
             getMetrics: function () {

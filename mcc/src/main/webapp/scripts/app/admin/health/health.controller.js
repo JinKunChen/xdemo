@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .controller('HealthController', function ($scope, MonitoringService) {
         $scope.updatingHealth = true;
 

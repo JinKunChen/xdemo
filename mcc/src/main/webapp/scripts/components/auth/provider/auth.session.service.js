@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xmansApp')
+angular.module('topsemApp')
     .factory('AuthServerProvider', function loginService($http, localStorageService, $window) {
         return {
             login: function(credentials) {
