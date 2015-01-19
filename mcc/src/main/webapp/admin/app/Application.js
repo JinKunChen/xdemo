@@ -165,9 +165,9 @@ App.Util = {
             ? "<span style=\"color:green;\">是</span>"
             : "<span style=\"color:red;\">否</span>";
     },
-    dateRender: function (format) {
-        format = format || "Y-m-d G:i";
-        return Ext.util.Format.dateRenderer(format);
+    dateRender: function (value) {
+        var date = new Date(value);
+        return Ext.util.Format.date(date, "Y-m-d G:i");
     },
     secondDateRender: function (value) {
         var date = new Date(value * 1000);

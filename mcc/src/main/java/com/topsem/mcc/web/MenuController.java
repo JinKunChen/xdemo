@@ -6,8 +6,7 @@ import com.topsem.common.web.CrudController;
 import com.topsem.common.web.Response;
 import com.topsem.mcc.domain.Menu;
 import com.topsem.mcc.service.MenuService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -19,10 +18,9 @@ import org.springframework.web.bind.annotation.*;
  * @author CHEN
  */
 @Controller
-@RequestMapping("/system/menu")
+@RequestMapping("/system/menus")
+@Slf4j
 public class MenuController extends CrudController<Menu, Long> {
-
-    private static final Logger logger = LoggerFactory.getLogger(MenuController.class);
 
     @Autowired
     private MenuService menuService;
@@ -48,7 +46,7 @@ public class MenuController extends CrudController<Menu, Long> {
     @ResponseBody
     @RequestMapping("/getMenuTreeList")
     public Object getMenuTreeList() {
-        logger.info("加载系统菜单...");
+        log.info("加载系统菜单...");
         return menuService.getMenuByParentId(0L);
     }
 

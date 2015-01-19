@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <property name="now" value="now()" dbms="mysql,h2"/>
     <property name="now" value="current_timestamp" dbms="postgresql"/>
@@ -30,7 +30,7 @@
                 <constraints unique="true"/>
             </column>
             <column name="activated" type="boolean" valueBoolean="false">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="langKey" type="varchar(5)"/>
             <column name="activationKey" type="varchar(20)"/>
@@ -45,14 +45,14 @@
         </createTable>
 
         <createIndex indexName="idx_user_login"
-            tableName="T_USER"
-            unique="true">
+                     tableName="T_USER"
+                     unique="true">
             <column name="login" type="varchar(50)"/>
         </createIndex>
 
         <createIndex indexName="idx_user_email"
-            tableName="T_USER"
-            unique="true">
+                     tableName="T_USER"
+                     unique="true">
             <column name="email" type="varchar(100)"/>
         </createIndex>
 
@@ -79,7 +79,7 @@
             </column>
             <column name="userId" type="bigint"/>
             <column name="tokenValue" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="tokenDate" type="date"/>
             <column name="ipAddress" type="varchar(39)"/>
@@ -128,7 +128,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="principal" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="eventDate" type="timestamp"/>
             <column name="eventType" type="varchar(255)"/>
@@ -169,20 +169,18 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(50)">
-                <constraints unique="true" nullable="false"/>
-            </column>
+            <column name="name" type="varchar(50)"/>
             <column name="SN" type="int"/>
             <column name="expanded" type="boolean"/>
             <column name="leaf" type="boolean"/>
             <column name="display" type="boolean" valueBoolean="false">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="parentId" type="bigint"/>
             <column name="clazz" type="varchar(50)"/>
             <column name="iconCls" type="varchar(50)"/>
             <column name="parentIds" type="varchar(50)"/>
-            <column name="hrefTarget" type="varchar(100)" />
+            <column name="hrefTarget" type="varchar(100)"/>
             <column name="remark" type="varchar(255)"/>
         </createTable>
 
@@ -191,6 +189,49 @@
                   separator=";"
                   tableName="SYS_MENU"/>
 
+        <createTable tableName="T_PRODUCT">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="price" type="double"/>
+            <column name="description" type="varchar(255)"/>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/products.csv"
+                  separator=";"
+                  tableName="T_PRODUCT"/>
+
+        <createTable tableName="T_ORDER_ITEM">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="orderId" type="bigint"/>
+            <column name="productId" type="bigint"/>
+            <column name="amount" type="int"/>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/orderItems.csv"
+                  separator=";"
+                  tableName="T_ORDER_ITEM"/>
+
+        <createTable tableName="T_ORDER">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="createdDate" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/orders.csv"
+                  separator=";"
+                  tableName="T_ORDER"/>
+
     </changeSet>
-    
+
 </databaseChangeLog>

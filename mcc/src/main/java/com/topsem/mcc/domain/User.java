@@ -25,10 +25,6 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = false)
 public class User extends AbstractAuditingEntity implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     @NotNull
     @Pattern(regexp = "^[a-z0-9]*$")
     @Size(min = 1, max = 50)

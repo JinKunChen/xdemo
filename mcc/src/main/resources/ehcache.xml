@@ -40,4 +40,20 @@
     <cache name="com.topsem.mcc.domain.Menu"
            timeToLiveSeconds="3600">
     </cache>
+
+    <cache name="com.topsem.mcc.domain.Product"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.OrderItem"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.Order"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.Order.orderItems"
+           timeToLiveSeconds="3600">
+    </cache>
 </ehcache>

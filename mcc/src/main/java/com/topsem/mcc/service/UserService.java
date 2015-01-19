@@ -1,5 +1,6 @@
 package com.topsem.mcc.service;
 
+import com.topsem.common.service.BaseService;
 import com.topsem.mcc.domain.Authority;
 import com.topsem.mcc.domain.User;
 import com.topsem.mcc.repository.AuthorityRepository;
@@ -7,10 +8,9 @@ import com.topsem.mcc.repository.PersistentTokenRepository;
 import com.topsem.mcc.repository.UserRepository;
 import com.topsem.mcc.security.SecurityUtils;
 import com.topsem.mcc.service.util.RandomUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,9 +27,8 @@ import java.util.Set;
  */
 @Service
 @Transactional
-public class UserService {
-
-    private final Logger log = LoggerFactory.getLogger(UserService.class);
+@Slf4j
+public class UserService extends BaseService<User, Long> {
 
     @Inject
     private PasswordEncoder passwordEncoder;
@@ -46,14 +45,14 @@ public class UserService {
     public Optional<User> activateRegistration(String key) {
         log.debug("Activating user for activation key {}", key);
         userRepository.findOneByActivationKey(key)
-            .map(user -> {
-                // activate given user for the registration key.
-                user.setActivated(true);
-                user.setActivationKey(null);
-                userRepository.save(user);
-                log.debug("Activated user: {}", user);
-                return user;
-            });
+                .map(user -> {
+                    // activate given user for the registration key.
+                    user.setActivated(true);
+                    user.setActivationKey(null);
+                    userRepository.save(user);
+                    log.debug("Activated user: {}", user);
+                    return user;
+                });
         return Optional.empty();
     }
 
@@ -92,12 +91,12 @@ public class UserService {
     }
 
     public void changePassword(String password) {
-        userRepository.findOneByLogin(SecurityUtils.getCurrentLogin()).ifPresent(u-> {
+        userRepository.findOneByLogin(SecurityUtils.getCurrentLogin()).ifPresent(u -> {
             String encryptedPassword = passwordEncoder.encode(password);
             u.setPassword(encryptedPassword);
             userRepository.save(u);
             log.debug("Changed password for User: {}", u);
-        } );
+        });
     }
 
     @Transactional(readOnly = true)
@@ -118,7 +117,7 @@ public class UserService {
     @Scheduled(cron = "0 0 0 * * ?")
     public void removeOldPersistentTokens() {
         LocalDate now = new LocalDate();
-        persistentTokenRepository.findByTokenDateBefore(now.minusMonths(1)).stream().forEach(token ->{
+        persistentTokenRepository.findByTokenDateBefore(now.minusMonths(1)).stream().forEach(token -> {
             log.debug("Deleting token {}", token.getSeries());
             User user = token.getUser();
             user.getPersistentTokens().remove(token);

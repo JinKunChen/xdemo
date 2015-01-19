@@ -1,5 +1,6 @@
 package com.topsem.mcc.domain;
 
+import com.topsem.common.domain.IdEntity;
 import lombok.Data;
 import org.hibernate.annotations.Type;
 import org.hibernate.envers.Audited;
@@ -24,7 +25,7 @@ import javax.validation.constraints.NotNull;
 @Audited
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public abstract class AbstractAuditingEntity {
+public abstract class AbstractAuditingEntity extends IdEntity {
 
     @CreatedBy
     @NotNull

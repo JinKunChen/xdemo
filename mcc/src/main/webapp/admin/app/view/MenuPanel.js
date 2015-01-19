@@ -8,7 +8,7 @@ Ext.define('App.view.MenuPanel', {
     alias: 'widget.menupanel',
     entityId: "id",
     multiSelect: true,
-    baseUrl: "/system/menu",
+    baseUrl: "/system/menus",
     initComponent: function () {
         var me = this;
         me.window = me.getWindow();
@@ -113,8 +113,8 @@ Ext.define('App.view.MenuPanel', {
         };
     },
     getFields: function () {
-        return ['id', 'parent.id','parent.name', 'name', 'hrefTarget', 'clazz', 'sortNo', 'iconCls', 'expanded', 'leaf',
-            'remark'];
+        return ['id', 'parent.id','parent.name', 'name', 'hrefTarget',
+            'clazz', 'sortNo', 'iconCls', 'expanded', 'leaf', 'remark'];
     },
     getColumns: function () {
         return [

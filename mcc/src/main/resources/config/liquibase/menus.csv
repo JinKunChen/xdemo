@@ -1,6 +1,20 @@
 id;name;SN;expanded;leaf;iconCls;display;parentId;clazz;parentIds;hrefTarget;remark
 1;根菜单;0;true;false;NULL;true;0;NULL;0,;NULL;NULL
-2;系统管理;5;true;false;configIcon;true;1;NULL;0,1;NULL;NULL
-3;菜单管理;1;true;true;configIcon;true;2;App.view.MenuPanel;0,1,2;NULL;NULL
-4;人员管理;2;true;true;configIcon;true;2;App.view.UserPanel;0,1,2;NULL;NULL
+
+2;商品管理;2;true;true;configIcon;true;1;App.view.ProductPanel;0,1,2;NULL;NULL
+3;订单管理;2;true;true;configIcon;true;1;App.view.OrderPanel;0,1,2;NULL;NULL
+4;物流管理;2;true;true;configIcon;true;1;App.view.LogisticsPanel;0,1,2;NULL;NULL
+5;供应商管理;2;true;true;configIcon;true;1;App.view.VenderPanel;0,1,2;NULL;NULL
+
+11;系统管理;99;true;false;configIcon;true;1;NULL;0,1;NULL;NULL
+12;菜单管理;1;true;true;configIcon;true;11;App.view.MenuPanel;0,1,11;NULL;NULL
+13;人员管理;2;true;true;configIcon;true;11;App.view.UserPanel;0,1,11;NULL;NULL
+14;操作日志;2;true;true;configIcon;true;11;App.view.UserPanel;0,1,11;NULL;NULL
+
+21;门店管理;2;true;false;configIcon;true;1;NULL;0,1;NULL;NULL
+22;我的库存;2;true;true;configIcon;true;21;App.view.store.UserPanel;0,1,21;NULL;NULL
+23;商品列表;2;true;true;configIcon;true;21;App.view.store.ProductPanel;0,1,21;NULL;NULL
+24;订单列表;2;true;true;configIcon;true;21;App.view.store.OrderPanel;0,1,21;NULL;NULL
+25;操作日志;2;true;true;configIcon;true;21;App.view.store.LogPanel;0,1,21;NULL;NULL
+
 
