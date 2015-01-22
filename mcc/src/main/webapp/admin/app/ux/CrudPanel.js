@@ -207,12 +207,12 @@ Ext.define('App.ux.CrudPanel', {
             text: '导出',
             iconCls: "downloadIcon",
             handler: function () {
-                var params = {fileName: encodeURIComponent(me.exportButton.fileName || '')};
-                Ext.apply(params, me.store.proxy.extraParams);
-                App.util.Downloader.get({
-                    url: me.baseUrl + App.Config.Action.export,
-                    params: params
-                });
+                //var params = {fileName: encodeURIComponent(me.exportButton.fileName || '')};
+                //Ext.apply(params, me.store.proxy.extraParams);
+                //App.util.Downloader.get({
+                //    url: me.baseUrl + App.Config.Action.export,
+                //    params: params
+                //});
             }
         };
         Ext.apply(exportButton, me.exportButton);
