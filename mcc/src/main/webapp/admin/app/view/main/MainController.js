@@ -14,7 +14,7 @@ Ext.define('App.view.main.MainController', {
 
     alias: 'controller.main',
 
-    uses:['App.view.MenuPanel'],
+    uses: ['App.view.MenuPanel'],
 
     onClickButton: function () {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
@@ -24,6 +24,19 @@ Ext.define('App.view.main.MainController', {
         if (choice === 'yes') {
             //
         }
+    },
+
+    onLogout: function (choice) {
+        Ext.Ajax.request({
+            url: '/api/logout',
+            method: 'POST',
+            scope: this,
+            callback: this.onLogoutReturn
+        });
+    },
+
+    onLogoutReturn: function () {
+        console.dir("logout success!");
     },
 
     onMenuItemClick: function (selModel, record) {

@@ -30,18 +30,17 @@ Ext.define('App.view.login.LoginController', {
         Ext.getBody().unmask();
     },
 
-    onLoginSuccess: function (logname, logpass) {
-        console.log('登录成功，用户名： ' + logname);
-        console.log('登录成功，密  码： ' + logpass);
-        this.fireViewEvent('login', logname);
+    onLoginSuccess: function (loginName) {
+        console.log('登录成功，用户名： ' + loginName);
+        this.fireViewEvent('login', loginName);
         //var org = this.lookupReference('organization').getSelectedRecord();
         // this.fireViewEvent('login', this.getView(), user, org, this.loginManager);
     },
 
     login: function (options) {
         Ext.Ajax.request({
-            url: '/authenticate',
-            method: 'GET',
+            url: '/api/authentication',
+            method: 'POST',
             params: options.data,
             scope: this,
             callback: this.onLoginReturn,
@@ -55,25 +54,11 @@ Ext.define('App.view.login.LoginController', {
      */
     onLoginReturn: function (options, success, response) {
         options = options.original;
-        //var session = this.getSession(),
-        //    resultSet;
-
         if (success) {
-            console.log('log in success');
-            /**
-             resultSet = this.getModel().getProxy().getReader().read(response, {
-                recordCreator: session ? session.recordCreator : null
-            });
-
-             if (resultSet.getSuccess()) {
-                Ext.callback(options.success, options.scope, [resultSet.getRecords()[0]]);
-                /*/
-            console.log(response);
-            Ext.callback(options.success, options.scope, [options.data.username, options.data.password]);
-            return;
-            //}
+            console.log('login success');
+            Ext.callback(options.success, options.scope, [options.data.j_username]);
+        } else {
+            Ext.callback(options.failure, options.scope, [response]);
         }
-
-        //Ext.callback(options.failure, options.scope, [response, resultSet]);
     }
 });

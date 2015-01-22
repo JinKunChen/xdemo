@@ -28,7 +28,8 @@ Ext.define('App.view.main.region.Top', {
             glyph: 0xf007
         }, {
             text: '注销',
-            glyph: 0xf011
+            glyph: 0xf011,
+            handler: 'onLogout'
         }, {
             glyph: 0xf102,
             tooltip: '隐藏顶部区域',

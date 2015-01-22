@@ -14,28 +14,35 @@ Ext.define('App.view.login.Login', {
     autoShow: true,
     title: '用户登录---MCC运营后台',
     glyph: 'xf015@FontAwesome',
-
     items: [{
         xtype: 'form',//父窗体
         reference: 'form',
         bodyPadding: 20,
         items: [{
             xtype: 'textfield',
-            name: 'username',
+            name: 'j_username',
             labelWidth: 50,
             fieldLabel: '用户名',
             allowBlank: false,
+            value:'admin',
             emptyText: '用户名或邮箱地址'
         }, {
             xtype: 'textfield',
-            name: 'password',
+            name: 'j_password',
             labelWidth: 50,
             inputType: 'password',
             fieldLabel: '密  码',
             allowBlank: false,
+            value:'admin',
             emptyText: '请输入您的密码'
+        },{
+            xtype: 'checkboxfield',
+            name: '_spring_security_remember_me',
+            labelWidth: 50,
+            fieldLabel: '记住我'
         }]
     }],
+
     buttons: [{
         name: 'registbutton',
         text: '用户注册',
