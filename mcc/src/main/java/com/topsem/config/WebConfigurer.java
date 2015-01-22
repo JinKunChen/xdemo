@@ -147,6 +147,11 @@ public class WebConfigurer extends WebMvcConfigurerAdapter implements ServletCon
         metricsAdminServlet.setLoadOnStartup(2);
     }
 
+    /**
+     * 添加自定义参数解析
+     *
+     * @param argumentResolvers
+     */
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
         argumentResolvers.add(new QueryableMethodArgumentResolver());

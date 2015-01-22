@@ -11,6 +11,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManagerFactory;
 
 /**
+ * JPA配置
+ *
  * @author Chen on 14-11-26.
  */
 @Configuration
