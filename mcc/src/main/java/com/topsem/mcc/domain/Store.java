@@ -25,16 +25,36 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(callSuper = false)
 public class Store extends NamedEntity {
 
+    /**
+     * 门店类型
+     */
     @ManyToOne
     @JoinColumn(name = "storeTypeId")
     private StoreType storeType;
 
-    @ManyToOne
-    @JoinColumn(name = "addressId")
-    private Address address;
+    /**
+     * 公司名称
+     */
+    private String company;
+
+    /**
+     * 联系人
+     */
+    private String linkman;
+
+    /**
+     * 地址
+     */
+    private String address;
+
+    /**
+     * 联系电话
+     */
+    private String phone;
 
     @CreatedDate
     @NotNull
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     @Column(nullable = false)
-    private DateTime createdDate = DateTime.now();}
+    private DateTime createdDate = DateTime.now();
+}

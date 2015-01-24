@@ -196,6 +196,8 @@
             <column name="name" type="varchar(50)"/>
             <column name="brandId" type="bigint"/>
             <column name="price" type="double"/>
+            <column name="model" type="varchar(50)"/>
+            <column name="imgUrl" type="varchar(255)"/>
             <column name="description" type="varchar(255)"/>
         </createTable>
 
@@ -318,7 +320,11 @@
             </column>
             <column name="name" type="varchar(255)"/>
             <column name="storeTypeId" type="bigint"/>
-            <column name="addressId" type="bigint"/>
+            <column name="company" type="varchar(255)"/>
+            <column name="linkman" type="varchar(255)"/>
+            <column name="phone" type="varchar(255)"/>
+            <column name="areaId" type="bigint"/>
+            <column name="address" type="varchar(255)"/>
             <column name="createdDate" type="timestamp" defaultValueDate="${now}">
                 <constraints nullable="false"/>
             </column>
@@ -328,7 +334,6 @@
                   file="config/liquibase/stores.csv"
                   separator=";"
                   tableName="T_STORE"/>
-
 
 
     </changeSet>

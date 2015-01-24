@@ -23,11 +23,31 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = false)
 public class Product extends NamedEntity {
 
+    /**
+     * 所属品牌
+     */
     @ManyToOne
     @JoinColumn(name = "brandId")
     private Brand brand;
 
+    /**
+     * 商品单价
+     */
     private double price;
 
+    /**
+     * 商品型号
+     */
+    private String model;
+
+    /**
+     * 图片地址
+     */
+    private String imgUrl;
+
+
+    /**
+     * 商品描述
+     */
     private String description;
 }
