@@ -19,7 +19,11 @@ Ext.define('App.view.ProductPanel', {
                 name: 'name',
                 allowBlank: false
             },
-
+            {
+                fieldLabel: '型号',
+                name: 'model',
+                allowBlank: false
+            },
             {
                 fieldLabel: '售价',
                 name: 'price',
@@ -32,7 +36,7 @@ Ext.define('App.view.ProductPanel', {
             }
         ]
     },
-    fields: ['id', 'name', 'price', 'brand.id', 'brand.name', 'description'],
+    fields: ['id', 'name', 'price', 'brand.id', 'brand.name', 'model', 'imgUrl', 'description'],
     columns: [
         {
             xtype: 'rownumberer'
@@ -41,6 +45,11 @@ Ext.define('App.view.ProductPanel', {
             text: "产品名称",
             width: 200,
             dataIndex: 'name'
+        },
+        {
+            text: "型号",
+            width: 80,
+            dataIndex: 'model'
         },
         {
             text: "售价",

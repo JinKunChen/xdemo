@@ -1,10 +1,10 @@
 /*
- * 门店管理面板
+ * 供应商管理面板
  */
 
-Ext.define('App.view.StorePanel', {
+Ext.define('App.view.SupplierPanel', {
     extend: 'App.ux.CrudPanel',
-    alias: 'widget.storepanel',
+    alias: 'widget.supplierpanel',
     requires: ['App.ux.RemoteComboBox'],
     baseUrl: '/stores',
     multiSelect: true,
