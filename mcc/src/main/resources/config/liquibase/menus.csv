@@ -8,7 +8,6 @@ id;name;parentId;parentIds;clazz;hrefTarget;SN;expanded;leaf;display;iconCls;rem
 21;商品管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
 22;商品列表;21;0,1,21;App.view.ProductPanel;NULL;0;true;true;true;NULL;NULL
 23;商品类型;21;0,1,21;App.view.ProductTypePanel;NULL;0;true;true;true;NULL;NULL
-24;商品品牌;21;0,1,21;App.view.BrandPanel;NULL;0;true;true;true;NULL;NULL
 
 31;订单管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
 32;订单列表;31;0,1,31;App.view.OrderPanel;NULL;0;true;true;true;NULL;NULL
@@ -16,8 +15,13 @@ id;name;parentId;parentIds;clazz;hrefTarget;SN;expanded;leaf;display;iconCls;rem
 41;供应商管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
 42;供应商列表;41;0,1,42;App.view.SupplierPanel;NULL;0;true;true;true;NULL;NULL
 
-52;物流管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+51;物流管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
 
+61;品牌空间;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+62;品牌列表;61;0,1,61;App.view.BrandPanel;NULL;0;true;true;true;NULL;NULL
+
+71;微信管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+72;关注列表;71;0,71;App.view.StorePanel;NULL;0;true;true;true;NULL;NULL
 
 91;系统管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
 92;菜单管理;91;0,1,91;App.view.MenuPanel;NULL;0;true;true;true;NULL;NULL
@@ -25,6 +29,8 @@ id;name;parentId;parentIds;clazz;hrefTarget;SN;expanded;leaf;display;iconCls;rem
 94;地区管理;91;0,1,91;App.view.AreaPanel;NULL;0;true;true;true;NULL;NULL
 99;操作日志;91;0,1,91;App.view.LogPanel;NULL;0;true;true;true;NULL;NULL
 
-
+101;示例;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+102;ArrayGrid;101;0,1,101;App.view.demo.ArrayGrid;NULL;0;true;true;true;NULL;NULL
+103;普通表格示例;101;0,1,101;App.view.demo.GridPanelDemo;NULL;0;true;true;true;NULL;NULL
 
 

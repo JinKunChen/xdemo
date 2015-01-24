@@ -258,6 +258,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(50)"/>
+            <column name="totalAmount" type="double"/>
             <column name="createdDate" type="timestamp" defaultValueDate="${now}">
                 <constraints nullable="false"/>
             </column>

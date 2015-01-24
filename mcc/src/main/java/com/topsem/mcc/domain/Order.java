@@ -26,6 +26,11 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class Order extends NamedEntity {
 
+    /**
+     * 订单总金额
+     */
+    private double totalAmount;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "order")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private List<OrderItem> orderItems;
@@ -34,4 +39,5 @@ public class Order extends NamedEntity {
     @NotNull
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     @Column(nullable = false)
-    private DateTime createdDate = DateTime.now();}
+    private DateTime createdDate = DateTime.now();
+}
