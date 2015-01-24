@@ -12,22 +12,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * 商品实体
+ * 地址实体
  *
  * @author Chen on 15/1/19.
  */
+
 @Entity
-@Table(name = "T_PRODUCT")
+@Table(name = "T_ADDRESS")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Product extends NamedEntity {
+public class Address extends NamedEntity {
 
     @ManyToOne
-    @JoinColumn(name = "brandId")
-    private Brand brand;
+    @JoinColumn(name = "areaId")
+    private Area area;
 
-    private double price;
-
-    private String description;
 }

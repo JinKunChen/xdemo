@@ -170,16 +170,16 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(50)"/>
+            <column name="parentId" type="bigint"/>
+            <column name="parentIds" type="varchar(50)"/>
             <column name="SN" type="int"/>
             <column name="expanded" type="boolean"/>
             <column name="leaf" type="boolean"/>
             <column name="display" type="boolean" valueBoolean="false">
                 <constraints nullable="false"/>
             </column>
-            <column name="parentId" type="bigint"/>
             <column name="clazz" type="varchar(50)"/>
             <column name="iconCls" type="varchar(50)"/>
-            <column name="parentIds" type="varchar(50)"/>
             <column name="hrefTarget" type="varchar(100)"/>
             <column name="remark" type="varchar(255)"/>
         </createTable>
@@ -194,9 +194,43 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(50)"/>
+            <column name="brandId" type="bigint"/>
             <column name="price" type="double"/>
             <column name="description" type="varchar(255)"/>
         </createTable>
+
+        <createTable tableName="T_PRODUCT_TYPE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="createdDate" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/productTypes.csv"
+                  separator=";"
+                  tableName="T_PRODUCT_TYPE"/>
+
+
+        <createTable tableName="T_BRAND">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="productTypeId" type="bigint"/>
+            <column name="createdDate" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/brands.csv"
+                  separator=";"
+                  tableName="T_BRAND"/>
+
 
         <loadData encoding="UTF-8"
                   file="config/liquibase/products.csv"
@@ -231,6 +265,71 @@
                   file="config/liquibase/orders.csv"
                   separator=";"
                   tableName="T_ORDER"/>
+
+
+        <createTable tableName="T_AREA">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="code" type="int"/>
+            <column name="zoneType" type="int"/>
+            <column name="parentId" type="bigint"/>
+            <column name="SN" type="int"/>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/areas.csv"
+                  separator=";"
+                  tableName="T_AREA"/>
+
+        <createTable tableName="T_ADDRESS">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="areaId" type="bigint"/>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/addresses.csv"
+                  separator=";"
+                  tableName="T_ADDRESS"/>
+
+        <createTable tableName="T_STORE_TYPE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="createdDate" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/storeTypes.csv"
+                  separator=";"
+                  tableName="T_STORE_TYPE"/>
+
+
+        <createTable tableName="T_STORE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="storeTypeId" type="bigint"/>
+            <column name="addressId" type="bigint"/>
+            <column name="createdDate" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/stores.csv"
+                  separator=";"
+                  tableName="T_STORE"/>
+
+
 
     </changeSet>
 

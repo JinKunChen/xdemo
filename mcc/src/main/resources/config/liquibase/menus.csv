@@ -1,20 +1,30 @@
-id;name;SN;expanded;leaf;iconCls;display;parentId;clazz;parentIds;hrefTarget;remark
-1;根菜单;0;true;false;NULL;true;0;NULL;0,;NULL;NULL
+id;name;parentId;parentIds;clazz;hrefTarget;SN;expanded;leaf;display;iconCls;remark
+1;根菜单;0;0,;NULL;NULL;0;true;false;true;NULL;NULL
 
-2;商品管理;2;true;true;configIcon;true;1;App.view.ProductPanel;0,1,2;NULL;NULL
-3;订单管理;2;true;true;configIcon;true;1;App.view.OrderPanel;0,1,2;NULL;NULL
-4;物流管理;2;true;true;configIcon;true;1;App.view.LogisticsPanel;0,1,2;NULL;NULL
-5;供应商管理;2;true;true;configIcon;true;1;App.view.VenderPanel;0,1,2;NULL;NULL
+11;门店管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+12;门店列表;11;0,1,11;App.view.StorePanel;NULL;0;true;true;true;NULL;NULL
+13;门店类型;11;0,1,11;App.view.StoreTypePanel;NULL;0;true;true;true;NULL;NULL
 
-11;系统管理;99;true;false;configIcon;true;1;NULL;0,1;NULL;NULL
-12;菜单管理;1;true;true;configIcon;true;11;App.view.MenuPanel;0,1,11;NULL;NULL
-13;人员管理;2;true;true;configIcon;true;11;App.view.UserPanel;0,1,11;NULL;NULL
-14;操作日志;2;true;true;configIcon;true;11;App.view.UserPanel;0,1,11;NULL;NULL
+21;商品管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+22;商品列表;21;0,1,21;App.view.ProductPanel;NULL;0;true;true;true;NULL;NULL
+23;商品类型;21;0,1,21;App.view.ProductTypePanel;NULL;0;true;true;true;NULL;NULL
+24;商品品牌;21;0,1,21;App.view.BrandPanel;NULL;0;true;true;true;NULL;NULL
 
-21;门店管理;2;true;false;configIcon;true;1;NULL;0,1;NULL;NULL
-22;我的库存;2;true;true;configIcon;true;21;App.view.store.UserPanel;0,1,21;NULL;NULL
-23;商品列表;2;true;true;configIcon;true;21;App.view.store.ProductPanel;0,1,21;NULL;NULL
-24;订单列表;2;true;true;configIcon;true;21;App.view.store.OrderPanel;0,1,21;NULL;NULL
-25;操作日志;2;true;true;configIcon;true;21;App.view.store.LogPanel;0,1,21;NULL;NULL
+31;订单管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+32;订单列表;31;0,1,31;App.view.OrderPanel;NULL;0;true;true;true;NULL;NULL
+
+41;供应商管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+42;供应商列表;41;0,1,42;App.view.SupplierPanel;NULL;0;true;true;true;NULL;NULL
+
+52;物流管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+
+
+91;系统管理;1;0,1;NULL;NULL;0;true;false;true;NULL;NULL
+92;菜单管理;91;0,1,91;App.view.MenuPanel;NULL;0;true;true;true;NULL;NULL
+93;人员管理;91;0,1,91;App.view.UserPanel;NULL;0;true;true;true;NULL;NULL
+94;地区管理;91;0,1,91;App.view.AreaPanel;NULL;0;true;true;true;NULL;NULL
+99;操作日志;91;0,1,91;App.view.LogPanel;NULL;0;true;true;true;NULL;NULL
+
+
 
 

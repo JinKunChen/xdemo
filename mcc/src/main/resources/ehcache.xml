@@ -41,7 +41,19 @@
            timeToLiveSeconds="3600">
     </cache>
 
+    <cache name="com.topsem.mcc.domain.Menu.children"
+           timeToLiveSeconds="3600">
+    </cache>
+
     <cache name="com.topsem.mcc.domain.Product"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.ProductType"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.Brand"
            timeToLiveSeconds="3600">
     </cache>
 
@@ -54,6 +66,26 @@
     </cache>
 
     <cache name="com.topsem.mcc.domain.Order.orderItems"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.Area"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.Area.children"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.Address"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.StoreType"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.topsem.mcc.domain.Store"
            timeToLiveSeconds="3600">
     </cache>
 </ehcache>
