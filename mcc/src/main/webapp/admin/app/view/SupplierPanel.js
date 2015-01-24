@@ -54,7 +54,7 @@ Ext.define('App.view.SupplierPanel', {
         },
         {
             width: 200,
-            text: "门店地址",
+            text: "地址",
             dataIndex: 'address'
         },
         {
