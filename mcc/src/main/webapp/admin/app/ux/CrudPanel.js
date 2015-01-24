@@ -134,8 +134,12 @@ Ext.define('App.ux.CrudPanel', {
                 if (record) {
                     record.set(formValues);//修改
                 } else {
-                    record = new DataModel();
+                    record = Ext.create('Ext.data.Model', {
+                        idProperty: 'id', // 实体主键
+                        fields: me.fields
+                    });
                     record.set(formValues);
+                    console.dir(record);
                     me.store.add(record); //添加
                     setTimeout(function () {
                         //由于ID在服务端生成，所以重新加载数据
@@ -247,7 +251,7 @@ Ext.define('App.ux.CrudPanel', {
         var createButton = {
             text: '添加',
             hidden: true,
-            iconCls: "page_addIcon",
+            iconCls: 'add',
             handler: function () {
                 editWindow.down('ux_formpanel').form.reset();
                 editWindow.show();

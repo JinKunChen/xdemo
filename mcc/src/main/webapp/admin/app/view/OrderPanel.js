@@ -5,9 +5,9 @@
 Ext.define('App.view.OrderPanel', {
     extend: 'App.ux.CrudPanel',
     alias: 'widget.orderpanel',
-    requires: ['App.ux.RemoteComboBox'],
+    requires: ['Ext.grid.column.Action','App.ux.RemoteComboBox'],
     baseUrl: '/orders',
-    multiSelect: true,
+    selType: 'checkboxmodel',
     window: {
         title: '菜单窗口',
         items: [
@@ -48,8 +48,8 @@ Ext.define('App.view.OrderPanel', {
         },
         {
             width: 100,
-            text: "订单金额",
-            dataIndex: 'price',
+            text: "订单总金额",
+            dataIndex: 'totalAmount',
             sortable: true
         },
         {
@@ -59,34 +59,34 @@ Ext.define('App.view.OrderPanel', {
             renderer: App.Util.dateRender
         },
         {
-            text: '操作',
             menuDisabled: true,
             sortable: false,
             xtype: 'actioncolumn',
             width: 50,
             items: [
                 {
+                    text: "查看",
                     iconCls: 'sell-col',
                     tooltip: 'Sell stock',
                     handler: function (grid, rowIndex, colIndex) {
                         alert("ss");
                     }
-                },
-                {
-                    text: "查看",
-                    tooltip: '查看订单明细',
-                    handler: function (grid, rowIndex, colIndex) {
-                        var records = grid.getSelectionModel().getSelection();
-                        if (Ext.isEmpty(records)) {
-                            Ext.Msg.alert("提示", "请先选择要查看的订单!");
-                            return;
-                        }
-                        Ext.create('App.view.OrderDetailWindow', {
-                            orderId: records[0].get('id')
-                        }).show();
-
-                    }
                 }
+                //,{
+                //    text: "查看",
+                //    tooltip: '查看订单明细',
+                //    handler: function (grid, rowIndex, colIndex) {
+                //        var records = grid.getSelectionModel().getSelection();
+                //        if (Ext.isEmpty(records)) {
+                //            Ext.Msg.alert("提示", "请先选择要查看的订单!");
+                //            return;
+                //        }
+                //        Ext.create('App.view.OrderDetailWindow', {
+                //            orderId: records[0].get('id')
+                //        }).show();
+                //
+                //    }
+                //}
             ]
         }
     ]

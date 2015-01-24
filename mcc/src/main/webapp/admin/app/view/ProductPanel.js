@@ -25,7 +25,7 @@ Ext.define('App.view.ProductPanel', {
                 allowBlank: false
             },
             {
-                fieldLabel: '售价',
+                fieldLabel: '价格',
                 name: 'price',
                 allowBlank: false
             },
@@ -33,6 +33,14 @@ Ext.define('App.view.ProductPanel', {
                 fieldLabel: '商品描述',
                 name: 'description',
                 allowBlank: false
+            },
+            {
+                fieldLabel: '商品图片',
+                name: 'imgUrl',
+                xtype: 'filefield',
+                buttonText: '请选择商品图片文件...',
+                msgTarget: 'side'
+
             }
         ]
     },
@@ -52,8 +60,9 @@ Ext.define('App.view.ProductPanel', {
             dataIndex: 'model'
         },
         {
-            text: "售价",
+            text: "价格",
             width: 80,
+            formatter: 'usMoney',
             dataIndex: 'price'
         },
         {
