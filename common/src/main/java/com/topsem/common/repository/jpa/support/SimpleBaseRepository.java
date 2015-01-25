@@ -25,7 +25,7 @@ import java.util.Set;
  * @author Chen on 14-11-30.
  */
 public class SimpleBaseRepository<T, ID extends Serializable>
-    extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID> {
+        extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID> {
 
     public static final String LOGIC_DELETE_ALL_QUERY_STRING = "update %s x set x.deleted=true where x in (?1)";
     public static final String DELETE_ALL_QUERY_STRING = "delete from %s x where x in (?1)";
@@ -65,7 +65,6 @@ public class SimpleBaseRepository<T, ID extends Serializable>
     public void delete(final ID id) {
         delete(findOne(id));
     }
-
 
 
     /**

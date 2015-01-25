@@ -1,5 +1,6 @@
 id;name;code;parentId;zoneType;SN
-1;北京;NULL;NULL;4;1
+0;Root;NULL;NULL;0;0
+1;北京;NULL;0;4;1
 2;东城;NULL;1;4;1
 3;西城;NULL;1;4;2
 4;朝阳;NULL;1;4;3
@@ -16,7 +17,7 @@ id;name;code;parentId;zoneType;SN
 15;怀柔;NULL;1;4;14
 16;密云;NULL;1;4;15
 17;延庆;NULL;1;4;16
-18;上海;NULL;NULL;1;2
+18;上海;NULL;0;1;2
 19;崇明;NULL;18;1;1
 20;黄浦;NULL;18;1;2
 21;卢湾;NULL;18;1;3
@@ -36,7 +37,7 @@ id;name;code;parentId;zoneType;SN
 35;青浦;NULL;18;1;17
 36;南汇;NULL;18;1;18
 37;奉贤;NULL;18;1;19
-38;广东;NULL;NULL;2;3
+38;广东;NULL;0;2;3
 39;广州;NULL;38;2;1
 40;深圳;NULL;38;2;2
 41;珠海;NULL;38;2;3
@@ -68,7 +69,7 @@ id;name;code;parentId;zoneType;SN
 67;江都;NULL;61;1;6
 68;江阴;NULL;61;1;7
 69;昆山;NULL;61;1;8
-70;连云港;NULL;61;1;9
+70;连云港;0;61;1;9
 71;南通;NULL;61;1;10
 72;启东;NULL;61;1;11
 73;沭阳;NULL;61;1;12
@@ -86,7 +87,7 @@ id;name;code;parentId;zoneType;SN
 85;张家港;NULL;61;1;24
 86;镇江;NULL;61;1;25
 87;周庄;NULL;61;1;26
-88;浙江;NULL;NULL;1;5
+88;浙江;NULL;0;1;5
 89;杭州;NULL;88;1;1
 90;安吉;NULL;88;1;2
 91;慈溪;NULL;88;1;3
@@ -114,7 +115,7 @@ id;name;code;parentId;zoneType;SN
 113;温州;NULL;88;1;25
 114;余姚;NULL;88;1;26
 115;舟山;NULL;88;1;27
-116;重庆;NULL;NULL;6;6
+116;重庆;NULL;0;6;6
 117;万州;NULL;116;6;1
 118;涪陵;NULL;116;6;2
 119;渝中;NULL;116;6;3
@@ -155,7 +156,7 @@ id;name;code;parentId;zoneType;SN
 154;合川;NULL;116;6;38
 155;永川;NULL;116;6;39
 156;南川;NULL;116;6;40
-157;安徽;NULL;NULL;1;7
+157;安徽;NULL;0;1;7
 158;合肥;NULL;157;1;1
 159;安庆;NULL;157;1;2
 160;蚌埠;NULL;157;1;3
@@ -176,7 +177,7 @@ id;name;code;parentId;zoneType;SN
 175;屯溪;NULL;157;1;18
 176;芜湖;NULL;157;1;19
 177;宣城;NULL;157;1;20
-178;福建;NULL;NULL;1;8
+178;福建;NULL;0;1;8
 179;福州;NULL;178;1;1
 180;厦门;NULL;178;1;2
 181;泉州;NULL;178;1;3
@@ -186,7 +187,7 @@ id;name;code;parentId;zoneType;SN
 185;宁德;NULL;178;1;7
 186;莆田;NULL;178;1;8
 187;三明;NULL;178;1;9
-188;甘肃;NULL;NULL;5;23
+188;甘肃;NULL;0;5;23
 189;兰州;NULL;188;5;1
 190;白银;NULL;188;5;2
 191;定西;NULL;188;5;3
@@ -201,7 +202,7 @@ id;name;code;parentId;zoneType;SN
 200;武威;NULL;188;5;12
 201;西峰;NULL;188;5;13
 202;张掖;NULL;188;5;14
-203;广西;NULL;NULL;2;9
+203;广西;NULL;0;2;9
 204;南宁;NULL;203;2;1
 205;百色;NULL;203;2;2
 206;北海;NULL;203;2;3
@@ -214,7 +215,7 @@ id;name;code;parentId;zoneType;SN
 213;钦州;NULL;203;2;10
 214;梧州;NULL;203;2;11
 215;玉林;NULL;203;2;12
-216;贵州;NULL;NULL;6;23
+216;贵州;NULL;0;6;23
 217;贵阳;NULL;216;6;1
 218;安顺;NULL;216;6;2
 219;毕节;NULL;216;6;3
@@ -225,7 +226,7 @@ id;name;code;parentId;zoneType;SN
 224;兴义;NULL;216;6;8
 225;玉屏;NULL;216;6;9
 226;遵义;NULL;216;6;10
-227;海南;NULL;NULL;2;10
+227;海南;NULL;0;2;10
 228;海口;NULL;227;2;1
 229;儋县;NULL;227;2;2
 230;陵水;NULL;227;2;3
@@ -233,7 +234,7 @@ id;name;code;parentId;zoneType;SN
 232;三亚;NULL;227;2;5
 233;通什;NULL;227;2;6
 234;万宁;NULL;227;2;7
-235;河北;NULL;NULL;3;11
+235;河北;NULL;0;3;11
 236;石家庄;NULL;235;3;1
 237;保定;NULL;235;3;2
 238;北戴河;NULL;235;3;3
@@ -264,7 +265,7 @@ id;name;code;parentId;zoneType;SN
 263;双鸭山;NULL;251;7;12
 264;绥化;NULL;251;7;13
 265;伊春;NULL;251;7;14
-266;河南;NULL;NULL;3;13
+266;河南;NULL;0;3;13
 267;郑州;NULL;266;3;1
 268;安阳;NULL;266;3;2
 269;鹤壁;NULL;266;3;3
@@ -284,7 +285,7 @@ id;name;code;parentId;zoneType;SN
 283;许昌;NULL;266;3;17
 284;周口;NULL;266;3;18
 285;驻马店;NULL;266;3;19
-286;湖北;NULL;NULL;3;14
+286;湖北;NULL;0;3;14
 287;武汉;NULL;286;3;1
 288;恩施;NULL;286;3;2
 289;鄂州;NULL;286;3;3
@@ -302,7 +303,7 @@ id;name;code;parentId;zoneType;SN
 301;襄樊;NULL;286;3;15
 302;孝感;NULL;286;3;16
 303;宜昌;NULL;286;3;17
-304;湖南;NULL;NULL;3;15
+304;湖南;NULL;0;3;15
 305;长沙;NULL;304;3;1
 306;常德;NULL;304;3;2
 307;郴州;NULL;304;3;3
@@ -317,7 +318,7 @@ id;name;code;parentId;zoneType;SN
 316;永州;NULL;304;3;12
 317;张家界;NULL;304;3;13
 318;株洲;NULL;304;3;14
-319;江西;NULL;NULL;3;16
+319;江西;NULL;0;3;16
 320;南昌;NULL;319;3;1
 321;抚州;NULL;319;3;2
 322;赣州;NULL;319;3;3
@@ -331,7 +332,7 @@ id;name;code;parentId;zoneType;SN
 330;新余;NULL;319;3;11
 331;宜春;NULL;319;3;12
 332;鹰潭;NULL;319;3;13
-333;吉林;NULL;NULL;7;17
+333;吉林;NULL;0;7;17
 334;长春;NULL;333;7;1
 335;吉林;NULL;333;7;2
 336;白城;NULL;333;7;3
@@ -371,12 +372,12 @@ id;name;code;parentId;zoneType;SN
 370;乌海;NULL;360;4;10
 371;乌兰浩特;NULL;360;4;11
 372;锡林浩特;NULL;360;4;12
-373;宁夏;NULL;NULL;5;19
+373;宁夏;NULL;0;5;19
 374;银川;NULL;373;5;1
 375;固源;NULL;373;5;2
 376;石嘴山;NULL;373;5;3
 377;吴忠;NULL;373;5;4
-378;青海;NULL;NULL;5;20
+378;青海;NULL;0;5;20
 379;西宁;NULL;378;5;1
 380;德令哈;NULL;378;5;2
 381;格尔木;NULL;378;5;3
@@ -386,7 +387,7 @@ id;name;code;parentId;zoneType;SN
 385;玛沁;NULL;378;5;7
 386;同仁;NULL;378;5;8
 387;玉树;NULL;378;5;9
-388;山东;NULL;NULL;1;21
+388;山东;NULL;0;1;21
 389;济南;NULL;388;1;1
 390;滨州;NULL;388;1;2
 391;兖州;NULL;388;1;3
@@ -421,7 +422,7 @@ id;name;code;parentId;zoneType;SN
 420;阳泉;NULL;409;4;11
 421;榆次;NULL;409;4;12
 422;运城;NULL;409;4;13
-423;陕西;NULL;NULL;5;23
+423;陕西;NULL;0;5;23
 424;西安;NULL;423;5;1
 425;安康;NULL;423;5;2
 426;宝鸡;NULL;423;5;3
@@ -433,7 +434,7 @@ id;name;code;parentId;zoneType;SN
 432;咸阳;NULL;423;5;9
 433;延安;NULL;423;5;10
 434;榆林;NULL;423;5;11
-435;四川;NULL;NULL;6;24
+435;四川;NULL;0;6;24
 436;成都;NULL;435;6;1
 437;巴中;NULL;435;6;2
 438;达川;NULL;435;6;3

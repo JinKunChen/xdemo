@@ -12,11 +12,10 @@ import com.topsem.common.domain.view.View;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.OrderBy;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -44,11 +43,18 @@ public class BaseTree<T extends BaseTree> extends NamedEntity implements Sortabl
     private T parent;  //父节点
 
     @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
+    @Fetch(value= FetchMode.JOIN)
     @OrderBy(value = "SN")
     @NotFound(action = NotFoundAction.IGNORE)
     @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonView(View.WithChildren.class)
     private List<T> children = Lists.newArrayList(); // 子节点
+
+    @JsonView(View.Public.class)
+    private boolean expanded; // 展开状态
+
+    @JsonView(View.Public.class)
+    private boolean leaf; // 是否叶子节点
 
     public void addChildren(T tree) {
         this.children.add(tree);

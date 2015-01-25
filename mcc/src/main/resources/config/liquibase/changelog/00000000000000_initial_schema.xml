@@ -276,8 +276,10 @@
             </column>
             <column name="name" type="varchar(50)"/>
             <column name="code" type="int"/>
-            <column name="zoneType" type="int"/>
             <column name="parentId" type="bigint"/>
+            <column name="leaf" type="boolean" valueBoolean="false" defaultValue="false"/>
+            <column name="expanded" type="boolean" valueBoolean="false" defaultValue="false"/>
+            <column name="zoneType" type="int"/>
             <column name="SN" type="int"/>
         </createTable>
 

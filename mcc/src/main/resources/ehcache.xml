@@ -88,4 +88,8 @@
     <cache name="com.topsem.mcc.domain.Store"
            timeToLiveSeconds="3600">
     </cache>
+
+    <cache name="com.topsem.mcc.domain.Supplier"
+           timeToLiveSeconds="3600">
+    </cache>
 </ehcache>

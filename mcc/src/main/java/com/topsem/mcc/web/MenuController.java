@@ -12,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
+
 /**
  * 系统菜单
  *
@@ -56,6 +58,7 @@ public class MenuController extends CrudController<Menu, Long> {
     @ResponseBody
     @RequestMapping("/getTree")
     @JsonView({View.WithChildren.class})
+    @Transactional
     public Object getTree(@RequestParam Long id) {
         Menu menu = menuService.findOne(id);
         if (menu == null) {
