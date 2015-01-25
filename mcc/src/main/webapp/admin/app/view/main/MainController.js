@@ -26,6 +26,22 @@ Ext.define('App.view.main.MainController', {
         }
     },
 
+    onChangePassword: function () {
+
+        Ext.MessageBox.prompt('修改密码', '请输入新密码:', function (btn, text) {
+            if (btn != 'ok') {
+                return;
+            }
+            Ext.Ajax.request({
+                url: '/api/account/change_password',
+                method: 'POST',
+                jsonData: text,
+                scope: this
+            });
+        }, this);
+
+    },
+
     onLogout: function (choice) {
         Ext.Ajax.request({
             url: '/api/logout',

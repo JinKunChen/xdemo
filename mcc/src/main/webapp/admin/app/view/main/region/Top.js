@@ -5,9 +5,9 @@ Ext.define('App.view.main.region.Top', {
     items: [
         {
             //xtype:'button',默认就是button
-            text: '首页',
+            text: '奈美管理后台',
             hidden: false,
-            glyph: 0xf015
+            glyph: 0xf19c
         },
         {
             xtype: 'tbspacer',
@@ -16,16 +16,12 @@ Ext.define('App.view.main.region.Top', {
         '->',//右对齐面板
         '-',//一个竖直的分隔条
         {
-            xtype: 'textfield',
-            name: 'searchField',
-            emptyText: '输入您的搜索关键词'
-        }, {
-            text: '搜索',
-            glyph: 0xf00e
-        }, '-',//一个竖直的分隔条
-        {
             text: '用户登录',
             glyph: 0xf007
+        }, {
+            glyph: 0xf013,
+            tooltip: '修改密码',
+            handler: 'onChangePassword'
         }, {
             text: '注销',
             glyph: 0xf011,

@@ -9,11 +9,9 @@ Ext.define('App.view.demo.ArrayGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
         'Ext.grid.column.Action',
-        'App.store.Companies',
-        'App.model.Company'
+        'App.store.Companies'
     ],
     xtype: 'array-grid',
-    store: 'Companies',
     stateful: true,
     collapsible: true,
     multiSelect: true,
@@ -24,35 +22,37 @@ Ext.define('App.view.demo.ArrayGrid', {
         enableTextSelection: true
     },
     //<example>
-    otherContent: [{
-        type: 'Store',
-        path: 'app/store/Companies.js'
-    },{
-        type: 'Model',
-        path: 'app/model/Company.js'
-    }],
-    themes: {
-        classic: {
-            width: 600,
-            priceWidth: 75,
-            percentChangeColumnWidth: 75,
-            lastUpdatedColumnWidth: 85,
-            green: 'green',
-            red: 'red'
-        },
-        neptune: {
-            width: 750,
-            priceWidth: 95,
-            percentChangeColumnWidth: 100,
-            lastUpdatedColumnWidth: 115,
-            green: '#73b51e',
-            red: '#cf4c35'
-        }
-    },
+    //otherContent: [{
+    //    type: 'Store',
+    //    path: 'app/store/Companies.js'
+    //},{
+    //    type: 'Model',
+    //    path: 'app/model/Company.js'
+    //}],
+    //themes: {
+    //    classic: {
+    //        width: 600,
+    //        priceWidth: 75,
+    //        percentChangeColumnWidth: 75,
+    //        lastUpdatedColumnWidth: 85,
+    //        green: 'green',
+    //        red: 'red'
+    //    },
+    //    neptune: {
+    //        width: 750,
+    //        priceWidth: 95,
+    //        percentChangeColumnWidth: 100,
+    //        lastUpdatedColumnWidth: 115,
+    //        green: '#73b51e',
+    //        red: '#cf4c35'
+    //    }
+    //},
     //</example>
 
     initComponent: function () {
         var me = this;
+        //Bug?  Cannot read property 'isBufferedStore' of undefined.
+        me.store=Ext.create('App.store.Companies');
 
         me.columns = [
             {
