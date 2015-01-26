@@ -16,18 +16,7 @@ Ext.define('App.view.main.MainController', {
 
     uses: ['App.view.MenuPanel'],
 
-    onClickButton: function () {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-    },
-
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
-        }
-    },
-
     onChangePassword: function () {
-
         Ext.MessageBox.prompt('修改密码', '请输入新密码:', function (btn, text) {
             if (btn != 'ok') {
                 return;
@@ -39,20 +28,24 @@ Ext.define('App.view.main.MainController', {
                 scope: this
             });
         }, this);
-
     },
 
-    onLogout: function (choice) {
-        Ext.Ajax.request({
-            url: '/api/logout',
-            method: 'POST',
-            scope: this,
-            callback: this.onLogoutReturn
-        });
-    },
+    onLogout: function () {
+        Ext.MessageBox.confirm('注销', '确定注销吗?', function (btn) {
+            if (btn != 'yes') {
+                return;
+            }
+            Ext.Ajax.request({
+                url: '/api/logout',
+                method: 'POST',
+                scope: this,
+                callback: function () {
 
-    onLogoutReturn: function () {
-        console.dir("logout success!");
+                    window.location.href = "/admin";
+                    console.dir("logout success!");
+                }
+            });
+        }, this);
     },
 
     onMenuItemClick: function (selModel, record) {

@@ -5,7 +5,7 @@ Ext.define('App.view.main.region.Top', {
     items: [
         {
             //xtype:'button',默认就是button
-            text: '奈美管理后台',
+            text: '管理后台',
             hidden: false,
             glyph: 0xf19c
         },

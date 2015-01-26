@@ -88,8 +88,8 @@ public abstract class CrudController<T extends IdEntity, ID extends Serializable
     }
 
     @RequestMapping(value = "/update/{id}",
-        method = RequestMethod.POST,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity updateById(@RequestBody ID id, HttpServletRequest request) {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -102,7 +102,7 @@ public abstract class CrudController<T extends IdEntity, ID extends Serializable
 
 
     @RequestMapping(value = "/exportExcel",
-        method = {RequestMethod.GET, RequestMethod.POST})
+            method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     @SneakyThrows
     public ResponseEntity exportExcel(Queryable<T> queryable, @RequestParam(defaultValue = "报表数据") String fileName, HttpServletResponse response) {
@@ -128,8 +128,8 @@ public abstract class CrudController<T extends IdEntity, ID extends Serializable
      * @return
      */
     @RequestMapping(
-        method = {RequestMethod.POST, RequestMethod.PUT},
-        produces = APPLICATION_JSON_VALUE)
+            method = {RequestMethod.POST, RequestMethod.PUT},
+            produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object save(@RequestBody T model) {
         log.debug("保存实体 : {}", model);
@@ -145,8 +145,8 @@ public abstract class CrudController<T extends IdEntity, ID extends Serializable
      * @return
      */
     @RequestMapping(value = "/{id}",
-        method = {RequestMethod.POST, RequestMethod.PUT},
-        produces = APPLICATION_JSON_VALUE)
+            method = {RequestMethod.POST, RequestMethod.PUT},
+            produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object update(@PathVariable("id") ID id, @RequestBody String json) {
         Map<String, Object> params = JSON.parseObject(json, Map.class);
@@ -182,8 +182,8 @@ public abstract class CrudController<T extends IdEntity, ID extends Serializable
      * @return
      */
     @RequestMapping(value = "/{id}",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<T> get(@PathVariable ID id) {
         log.debug("根据ID获取实体 : {}", id);
@@ -201,8 +201,8 @@ public abstract class CrudController<T extends IdEntity, ID extends Serializable
      * @param id
      */
     @RequestMapping(value = "/{id}",
-        method = RequestMethod.DELETE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+            method = RequestMethod.DELETE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object delete(@PathVariable ID id) {
         log.debug("根据ID删除实体 : {}", id);
@@ -214,8 +214,8 @@ public abstract class CrudController<T extends IdEntity, ID extends Serializable
      * GET  /rest/authors/ -> return the page.
      */
     @RequestMapping(value = "",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object findWithPage(Queryable<T> queryable) {
         return service.findWithPage(queryable);

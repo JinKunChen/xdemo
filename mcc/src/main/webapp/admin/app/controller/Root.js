@@ -19,6 +19,9 @@ Ext.define('App.controller.Root',
                     login: 'onLogin'
                 }
             });
+
+            //调试时,自动登录
+            //this.login.fireEvent('login');
         },
 
         /**
@@ -35,7 +38,7 @@ Ext.define('App.controller.Root',
 
         showUI: function () {
             console.log('show ui started');
-            //显示主界面  
+            //显示主界面
             this.viewport = new App.view.main.Main(
                 {   //用户信息传入视图           
                     viewModel: {

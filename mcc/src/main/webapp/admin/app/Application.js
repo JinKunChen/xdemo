@@ -15,10 +15,10 @@ Ext.define('App.Application', {
         // TODO: add global / shared stores here
     ],
 
-    //controllers: [
-    //    'Root'
-    //    // TODO: add controllers here
-    //],
+    controllers: [
+        //'Root'
+        // TODO: add controllers here
+    ],
 
     launch: function () {
         // TODO - Launch the application

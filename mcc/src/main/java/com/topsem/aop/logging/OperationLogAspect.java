@@ -1,32 +1,38 @@
 package com.topsem.aop.logging;
 
 import com.topsem.config.Constants;
+import com.topsem.log.domain.OperationLog;
+import com.topsem.log.service.OperationLogService;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 
 import javax.inject.Inject;
 import java.util.Arrays;
 
 /**
+ * 基本操作日志(增删改)-切面
  * Aspect for logging execution of service and repository Spring components.
  */
 @Aspect
-public class LoggingAspect {
+@Slf4j
+public class OperationLogAspect {
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Inject
     private Environment env;
 
-    @Pointcut("within(com.topsem.mcc.repository..*) || within(com.topsem.mcc.service..*) || within(com.topsem.mcc.web.rest..*)")
-    public void loggingPoincut() {}
+    @Inject
+    private OperationLogService operationLogService;
+
+    @Pointcut("within(com.topsem.mcc.web..*)")
+    public void loggingPoincut() {
+    }
 
     @AfterThrowing(pointcut = "loggingPoincut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
@@ -41,10 +47,18 @@ public class LoggingAspect {
 
     @Around("loggingPoincut()")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+
         if (log.isDebugEnabled()) {
             log.debug("Enter: {}.{}() with argument[s] = {}", joinPoint.getSignature().getDeclaringTypeName(),
                     joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
         }
+
+        OperationLog operationLog = new OperationLog();
+        operationLog.setName("test delete ");
+        operationLog.setDetail("delete id 1");
+        operationLog.setOperation(OperationLog.Operation.删除);
+        operationLogService.save(operationLog);
+
         try {
             Object result = joinPoint.proceed();
             if (log.isDebugEnabled()) {
@@ -58,5 +72,7 @@ public class LoggingAspect {
 
             throw e;
         }
+
+
     }
 }

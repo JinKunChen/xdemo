@@ -356,6 +356,24 @@
                   separator=";"
                   tableName="T_SUPPLIER"/>
 
+        <createTable tableName="T_OPERATION_LOG">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="operator" type="varchar(50)"/>
+            <column name="detail" type="varchar(255)"/>
+            <column name="operation" type="varchar(10)"/>
+            <column name="createdDate" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/operationLogs.csv"
+                  separator=";"
+                  tableName="T_OPERATION_LOG"/>
+
 
     </changeSet>
 
