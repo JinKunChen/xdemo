@@ -34,7 +34,7 @@ public class ProductController extends CrudController<Product, Long> {
     public void processUpload(@RequestParam MultipartFile file, ServletRequest request) throws IOException {
         log.info("File '" + file.getOriginalFilename() + "' uploaded successfully");
         String realPath = request.getServletContext().getRealPath("/");
-        String uploadDir = realPath + "/images/";
+        String uploadDir = realPath + "/upload/images/";
         Files.copy(file.getInputStream(), Paths.get(uploadDir + System.currentTimeMillis() + "-" + file.getOriginalFilename()));
         Response.success("上传文件成功:" + file.getOriginalFilename());
     }
