@@ -1,4 +1,4 @@
-package com.topsem.common;
+package com.chen.common;
 
 /**
  * @author Chen on 14/12/26.

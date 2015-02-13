@@ -16,7 +16,7 @@ import javax.persistence.Transient;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Entity
-@Table(name = "SYS_MENU")
+@Table(name = "T_MENU")
 @ToString(of = "name")
 public class Menu extends Tree<Menu> {
 

@@ -1,0 +1,2 @@
+id;code;nameField;valueField;tableName;whereCase;queryParam
+1;menu;name;id;T_MENU;NULL;NULL

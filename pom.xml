@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>com.topsem</groupId>
-    <artifactId>xmans</artifactId>
+    <artifactId>xdemo</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
