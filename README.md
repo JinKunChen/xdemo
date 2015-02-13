@@ -9,6 +9,7 @@
 
 3.common模块可以单独使用，不一定要与Jhipster结合
 
+4.学习并查考了springside和开涛的es框架
 
 注意：
     本项目在IDEA中开发,需要安装Lombok插件
@@ -18,3 +19,5 @@ JHipster 是一个 Yeoman 的生成器, 用来创建基于 Maven + Spring + Angu
 JHipster 官网 http://jhipster.github.io/
 
 这是我的QQ号 526261113 ，欢迎交流指正
+
+在此特别感谢springsie的作者和开涛大神
