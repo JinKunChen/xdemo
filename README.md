@@ -10,7 +10,7 @@
 
 3.common模块可以单独使用，不一定要与Jhipster结合
 
-4.学习并查考了springside和开涛的es框架
+4.学习并参考了springside和开涛的es框架
 
 注意：
     本项目在IDEA中开发,需要安装Lombok插件
