@@ -21,4 +21,4 @@ JHipster 官网 http://jhipster.github.io/
 
 这是我的QQ号 526261113 ，欢迎交流指正
 
-在此特别感谢springsie的作者和开涛大神
+在此特别感谢springside的作者和开涛大神
